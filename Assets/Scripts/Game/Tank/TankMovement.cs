@@ -1,0 +1,36 @@
+using UnityEngine;
+
+namespace Game.Tank
+{
+    public class TankMovement : MonoBehaviour
+    {
+        [SerializeField] private float maxSpeed = 3.5f;
+        [SerializeField] private float rotationSpeed = 70f;
+        [SerializeField] private float enginePower = 500f;
+        [Space]
+        [SerializeField] private Rigidbody2D rb;
+
+        private float _currentSpeed = 0f;
+        private float _currentRotation = 0f;
+
+        public void Move(float value)
+        {
+            float targetSpeed = value * maxSpeed;
+            _currentSpeed = targetSpeed;
+        }
+
+        public void Rotation(float value)
+        {
+            _currentRotation = value * rotationSpeed;
+        }
+
+        private void FixedUpdate()
+        {
+            rb.AddRelativeForceY(_currentSpeed * enginePower);
+            rb.linearVelocityY = Mathf.Clamp(rb.linearVelocityY, -maxSpeed, maxSpeed);
+
+            if(_currentRotation != 0)
+                rb.rotation -= _currentRotation * Time.fixedDeltaTime;
+        }
+    }
+}
