@@ -136,6 +136,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 365446862752961438}
   bulletPool: {fileID: 8619860682531563256}
+  RelodDuration: 5
+  HeatingDuration: 0.25
+  recoilPower: 500
+  gun: {fileID: 8897863258853727876}
+  HotCollor: {r: 0.9622642, g: 0.2621996, b: 0.049928807, a: 1}
+  rb: {fileID: 7491354986613616703}
 --- !u!1 &1166822322865635199
 GameObject:
   m_ObjectHideFlags: 0

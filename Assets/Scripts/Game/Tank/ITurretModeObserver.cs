@@ -4,6 +4,6 @@ namespace Game.Tank
 {
     public interface ITurretModeObserver
     {
-        public void OnTurretModeChanged(BaseGun newWeapon);
+        public void OnTurretModeChanged(BaseGun currentGun);
     }
 }
