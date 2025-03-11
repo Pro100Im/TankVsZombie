@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts.Game.UI
 {
-    public class TurretModeIndicator : MonoBehaviour, ITurretModeObserver
+    public sealed class TurretModeIndicator : MonoBehaviour, ITurretModeObserver
     {
         [SerializeField] Toggle toggleMiniGun;
         [SerializeField] Toggle toggleBigGun;

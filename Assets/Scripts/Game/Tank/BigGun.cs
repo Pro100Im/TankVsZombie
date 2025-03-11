@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.Tank
 {
-    public class BigGun : BaseGun
+    public sealed class BigGun : BaseGun
     {
         [SerializeField] private float RelodDuration = 3f;
         [SerializeField] private float HeatingDuration = 0.25f;

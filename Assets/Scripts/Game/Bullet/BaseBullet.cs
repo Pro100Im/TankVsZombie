@@ -6,10 +6,12 @@ namespace Game.Bullet
     [RequireComponent(typeof(Rigidbody2D))]
     public abstract class BaseBullet : MonoBehaviour
     {
-        [SerializeField] private Rigidbody2D rb;
+        [SerializeField] protected int damage = 1;
         [Space]
         [SerializeField] private float speedForce = 5f;
         [SerializeField] private float lifeTime = 3f;
+        [Space]
+        [SerializeField] private Rigidbody2D rb;
 
         private IBulletDeSpawner _bulletPool;
         private Coroutine _coroutine;

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.Tank
 {
-    public class TankTurret : MonoBehaviour, ITurretModeObservable
+    public sealed class TankTurret : MonoBehaviour, ITurretModeObservable
     {
         [SerializeField] private MiniGun miniGun;
         [SerializeField] private BigGun bigGun;

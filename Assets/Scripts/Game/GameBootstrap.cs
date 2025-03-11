@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public class GameBootstrap : MonoBehaviour
+    public sealed class GameBootstrap : MonoBehaviour
     {
         [SerializeField] private TankSpawner tankSpawner;
 

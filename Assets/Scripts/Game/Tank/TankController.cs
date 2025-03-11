@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace Game.Tank
 {
-    public class TankController : MonoBehaviour
+    public sealed class TankController : MonoBehaviour
     {
         [SerializeField] private TankMovement movement;
         [SerializeField] private TankTurret turret;

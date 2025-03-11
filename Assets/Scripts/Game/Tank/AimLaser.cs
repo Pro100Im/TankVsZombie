@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Game.Tank
 {
-    public class AimLaser : MonoBehaviour
+    public sealed class AimLaser : MonoBehaviour
     {
         [SerializeField] private float laserDistance = 100f;
         [Space]
