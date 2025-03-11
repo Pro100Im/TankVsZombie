@@ -237,4 +237,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2920797238515054449}
   speedForce: 5
-  lifeTime: 2
+  lifeTime: 1.5

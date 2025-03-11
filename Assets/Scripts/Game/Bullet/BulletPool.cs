@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.Bullet
 {
-    public sealed class BulletPool : MonoBehaviour
+    public sealed class BulletPool : MonoBehaviour, IBulletDeSpawner
     {
         [SerializeField] private BaseBullet bulletPrefab;
         [SerializeField] private int poolSize = 10;
@@ -45,6 +45,7 @@ namespace Game.Bullet
             bullet.transform.parent = null;
             bullet.transform.position = position;
             bullet.transform.rotation = rotation;
+
             bullet.gameObject.SetActive(true);
         }
 
@@ -52,6 +53,7 @@ namespace Game.Bullet
         {
             bullet.gameObject.SetActive(false);
             bullet.transform.parent = transform;
+
             bulletPool.Enqueue(bullet);
         }
     }

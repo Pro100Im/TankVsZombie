@@ -19,11 +19,13 @@ namespace Game.Tank
 
             input.ActionMap.Point.performed += AimInput;
             input.ActionMap.Fire.performed += FireInput;
+
+            input.ActionMap.SwapGun.started += SwapTurret;
         }
 
         public void Init() => input.ActionMap.Enable();
 
-        public void MoveInput(InputAction.CallbackContext context)
+        private void MoveInput(InputAction.CallbackContext context)
         {
             var input = context.ReadValue<Vector2>().normalized;
 
@@ -40,6 +42,8 @@ namespace Game.Tank
 
         private void FireInput(InputAction.CallbackContext context) => turret.Fire();
 
+        private void SwapTurret(InputAction.CallbackContext context) => turret.SwapTurretMode();
+
         private void OnDestroy()
         {
             input.ActionMap.Move.performed -= MoveInput;
@@ -47,6 +51,8 @@ namespace Game.Tank
 
             input.ActionMap.Point.performed -= AimInput;
             input.ActionMap.Fire.performed -= FireInput;
+
+            input.ActionMap.SwapGun.started -= SwapTurret;
 
             input.ActionMap.Disable();
         }

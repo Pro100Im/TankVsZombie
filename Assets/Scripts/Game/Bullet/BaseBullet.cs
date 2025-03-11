@@ -11,10 +11,10 @@ namespace Game.Bullet
         [SerializeField] private float speedForce = 5f;
         [SerializeField] private float lifeTime = 3f;
 
-        private BulletPool _bulletPool;
+        private IBulletDeSpawner _bulletPool;
         private Coroutine _coroutine;
 
-        public void Init(BulletPool bulletPool)
+        public void Init(IBulletDeSpawner bulletPool)
         {
             _bulletPool = bulletPool;
         }

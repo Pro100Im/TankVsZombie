@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 838389810967043746}
   - component: {fileID: 8185911037839031800}
   - component: {fileID: 5376676127051651020}
+  - component: {fileID: 3372367430776053286}
   m_Layer: 6
-  m_Name: BulletBazooka
+  m_Name: BulletBigGun
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,7 +90,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.18852234
+        value: 0.28987122
         inSlope: 3.1065571
         outSlope: 3.1065571
         tangentMode: 0
@@ -194,7 +195,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.04
+  m_Radius: 0.07
 --- !u!50 &5376676127051651020
 Rigidbody2D:
   serializedVersion: 5
@@ -222,3 +223,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3372367430776053286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8782129583722817302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ded1bb38ba0b24cb79e5a4f8dcfdf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 5376676127051651020}
+  speedForce: 8
+  lifeTime: 1.5
