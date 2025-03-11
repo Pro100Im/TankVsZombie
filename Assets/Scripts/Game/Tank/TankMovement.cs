@@ -15,7 +15,7 @@ namespace Game.Tank
 
         public void Move(float value)
         {
-            float targetSpeed = value * maxSpeed;
+            var targetSpeed = value * maxSpeed;
             _currentSpeed = targetSpeed;
         }
 
