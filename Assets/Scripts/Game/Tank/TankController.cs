@@ -15,7 +15,10 @@ namespace Game.Tank
 
             input.ActionMap.Move.performed += OnInput;
             input.ActionMap.Move.canceled += OnInput;
+        }
 
+        public void Init()
+        {
             input.ActionMap.Enable();
         }
 
