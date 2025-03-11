@@ -44,6 +44,15 @@ public partial class @TankInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Fire"",
+                    ""type"": ""Button"",
+                    ""id"": ""bb610d8d-2c4a-446e-8f18-2fbf8ab5af1b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -167,6 +176,17 @@ public partial class @TankInput: IInputActionCollection2, IDisposable
                     ""action"": ""Point"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""906fb38a-31d8-4aec-afc3-00947c6e8764"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -177,6 +197,7 @@ public partial class @TankInput: IInputActionCollection2, IDisposable
         m_ActionMap = asset.FindActionMap("ActionMap", throwIfNotFound: true);
         m_ActionMap_Move = m_ActionMap.FindAction("Move", throwIfNotFound: true);
         m_ActionMap_Point = m_ActionMap.FindAction("Point", throwIfNotFound: true);
+        m_ActionMap_Fire = m_ActionMap.FindAction("Fire", throwIfNotFound: true);
     }
 
     ~@TankInput()
@@ -245,12 +266,14 @@ public partial class @TankInput: IInputActionCollection2, IDisposable
     private List<IActionMapActions> m_ActionMapActionsCallbackInterfaces = new List<IActionMapActions>();
     private readonly InputAction m_ActionMap_Move;
     private readonly InputAction m_ActionMap_Point;
+    private readonly InputAction m_ActionMap_Fire;
     public struct ActionMapActions
     {
         private @TankInput m_Wrapper;
         public ActionMapActions(@TankInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_ActionMap_Move;
         public InputAction @Point => m_Wrapper.m_ActionMap_Point;
+        public InputAction @Fire => m_Wrapper.m_ActionMap_Fire;
         public InputActionMap Get() { return m_Wrapper.m_ActionMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -266,6 +289,9 @@ public partial class @TankInput: IInputActionCollection2, IDisposable
             @Point.started += instance.OnPoint;
             @Point.performed += instance.OnPoint;
             @Point.canceled += instance.OnPoint;
+            @Fire.started += instance.OnFire;
+            @Fire.performed += instance.OnFire;
+            @Fire.canceled += instance.OnFire;
         }
 
         private void UnregisterCallbacks(IActionMapActions instance)
@@ -276,6 +302,9 @@ public partial class @TankInput: IInputActionCollection2, IDisposable
             @Point.started -= instance.OnPoint;
             @Point.performed -= instance.OnPoint;
             @Point.canceled -= instance.OnPoint;
+            @Fire.started -= instance.OnFire;
+            @Fire.performed -= instance.OnFire;
+            @Fire.canceled -= instance.OnFire;
         }
 
         public void RemoveCallbacks(IActionMapActions instance)
@@ -297,5 +326,6 @@ public partial class @TankInput: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnPoint(InputAction.CallbackContext context);
+        void OnFire(InputAction.CallbackContext context);
     }
 }

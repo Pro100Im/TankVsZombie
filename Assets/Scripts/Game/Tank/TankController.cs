@@ -18,12 +18,10 @@ namespace Game.Tank
             input.ActionMap.Move.canceled += MoveInput;
 
             input.ActionMap.Point.performed += AimInput;
+            input.ActionMap.Fire.performed += FireInput;
         }
 
-        public void Init()
-        {
-            input.ActionMap.Enable();
-        }
+        public void Init() => input.ActionMap.Enable();
 
         public void MoveInput(InputAction.CallbackContext context)
         {
@@ -40,12 +38,15 @@ namespace Game.Tank
             turret.SetTarget(target);
         }
 
+        private void FireInput(InputAction.CallbackContext context) => turret.Fire();
+
         private void OnDestroy()
         {
             input.ActionMap.Move.performed -= MoveInput;
             input.ActionMap.Move.canceled -= MoveInput;
 
             input.ActionMap.Point.performed -= AimInput;
+            input.ActionMap.Fire.performed -= FireInput;
 
             input.ActionMap.Disable();
         }

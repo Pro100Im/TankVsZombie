@@ -5,6 +5,7 @@ namespace Game.Tank
 {
     public class TankTurret : MonoBehaviour
     {
+        [SerializeField] private MiniGun miniGun;
         [SerializeField] private float rotationSpeed = 25f;
 
         private const int Multiply = 100;
@@ -18,6 +19,11 @@ namespace Game.Tank
         public void SetTarget(Vector2 target)
         {
             _target = _camera.ScreenToWorldPoint(target);
+        }
+
+        public void Fire()
+        {
+            miniGun.Shoot();
         }
 
         private void Update() => Aiming();

@@ -18,7 +18,7 @@ namespace Game.Tank
             if(hit)
                 DrawLaser(transform.position, hit.point);
             else
-                DrawLaser(transform.position, transform.up * laserDistance);
+                DrawLaser(transform.position, transform.position + transform.up * laserDistance);
         }
 
         private void DrawLaser(Vector2 startPoint, Vector2 endPoint)
