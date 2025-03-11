@@ -1,46 +1,36 @@
-using DG.Tweening;
 using UnityEngine;
 
 namespace Game.Tank
 {
     public class TankMovement : MonoBehaviour
     {
-        [SerializeField] private float maxSpeed = 5;
-        [SerializeField] private float accelerationTime = 10f;
-        [SerializeField] private float decelerationTime = 1f;
-        [SerializeField] private float rotationSpeed = 40f;
+        [SerializeField] private float maxSpeed = 3.5f;
+        [SerializeField] private float rotationSpeed = 70f;
+        [SerializeField] private float enginePower = 500f;
         [Space]
         [SerializeField] private Rigidbody2D rb;
 
-        private float currentSpeed = 0f;
-        private float currentRotation = 0f;
-
-        private Tweener speedTweener;
+        private float _currentSpeed = 0f;
+        private float _currentRotation = 0f;
 
         public void Move(float value)
         {
             float targetSpeed = value * maxSpeed;
-            if(speedTweener != null && speedTweener.IsActive()) speedTweener.Kill();
-
-            if(value != 0)
-                speedTweener = DOTween.To(() => currentSpeed, x => currentSpeed = x, targetSpeed, accelerationTime).SetEase(Ease.OutQuad);
-            else
-                speedTweener = DOTween.To(() => currentSpeed, x => currentSpeed = x, 0, decelerationTime).SetEase(Ease.InQuad);
+            _currentSpeed = targetSpeed;
         }
 
         public void Rotation(float value)
         {
-            currentRotation = value * rotationSpeed;
+            _currentRotation = value * rotationSpeed;
         }
 
         private void FixedUpdate()
         {
-            rb.linearVelocity = transform.up * currentSpeed;
+            rb.AddRelativeForceY(_currentSpeed * enginePower);
+            rb.linearVelocityY = Mathf.Clamp(rb.linearVelocityY, -maxSpeed, maxSpeed);
 
-            Debug.Log($"rb {rb.linearVelocityY}");
-
-            if(currentRotation != 0)
-                rb.rotation -= currentRotation * Time.fixedDeltaTime;
+            if(_currentRotation != 0)
+                rb.rotation -= _currentRotation * Time.fixedDeltaTime;
         }
     }
 }

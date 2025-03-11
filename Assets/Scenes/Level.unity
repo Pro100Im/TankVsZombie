@@ -3638,9 +3638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a0cd53c1e16b34195ac0f2ec23fcbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 5
-  accelerationTime: 10
-  decelerationTime: 1
+  maxSpeed: 3.5
   rotationSpeed: 70
   rb: {fileID: 50497451978337367}
 --- !u!4 &2015777747
@@ -4476,7 +4474,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 100
-  m_LinearDamping: 10
+  m_LinearDamping: 5
   m_AngularDamping: 100
   m_GravityScale: 0
   m_Material: {fileID: 0}

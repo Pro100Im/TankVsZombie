@@ -21,7 +21,7 @@ namespace Game.Tank
 
         public void OnInput(InputAction.CallbackContext context)
         {
-            var input = context.ReadValue<Vector2>();
+            var input = context.ReadValue<Vector2>().normalized;
 
             movement.Move(input.y);
             movement.Rotation(input.x);
