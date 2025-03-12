@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4945434549679744}
   - component: {fileID: 212165480003377516}
   - component: {fileID: 58150674851976796}
+  - component: {fileID: 1122869755327860437}
   m_Layer: 0
   m_Name: Obstacle_5
   m_TagString: Obstacle
@@ -124,3 +125,56 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.03517866, y: 0}
   m_Radius: 0.620049
+--- !u!114 &1122869755327860437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673808722153900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_Priority: 4
+  m_ComponentVersion: 5
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.6700001, y: -0.6350002, z: 0}
+  - {x: -0.6700001, y: 0.6350002, z: 0}
+  - {x: 0.6700001, y: 0.6350002, z: 0}
+  - {x: 0.6700001, y: -0.6350002, z: 0}
+  m_ShapePathHash: 0
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 58150674851976796}
+  m_ShadowShape2DProvider:
+    rid: 3331141180452241851
+  m_ShadowCastingSource: 2
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0.58000183, y: 0.54499817, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0.09
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0.09
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 2
+  m_PreviousShadowShape2DSource: {fileID: 212165480003377516}
+  references:
+    version: 2
+    RefIds:
+    - rid: 3331141180452241851
+      type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+      data: 
