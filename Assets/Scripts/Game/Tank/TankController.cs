@@ -1,29 +1,38 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Game.Tank
 {
-    public sealed class TankController : MonoBehaviour
+    public sealed class TankController : MonoBehaviour, IDamageable
     {
+        public event Action<int> OnHpChanged;
+
+        [SerializeField] private int maxHp = 30;
+        [Space]
         [SerializeField] private TankMovement movement;
         [SerializeField] private TankTurret turret;
 
-        private TankInput input;
+        public int CurrentHp { get; private set; }
+
+        private TankInput _input;
 
         private void Awake()
         {
-            input = new TankInput();
+            _input = new TankInput();
 
-            input.ActionMap.Move.performed += MoveInput;
-            input.ActionMap.Move.canceled += MoveInput;
+            _input.ActionMap.Move.performed += MoveInput;
+            _input.ActionMap.Move.canceled += MoveInput;
 
-            input.ActionMap.Point.performed += AimInput;
-            input.ActionMap.Fire.performed += FireInput;
+            _input.ActionMap.Point.performed += AimInput;
+            _input.ActionMap.Fire.performed += FireInput;
 
-            input.ActionMap.SwapGun.started += SwapTurret;
+            _input.ActionMap.SwapGun.started += SwapTurret;
+
+            CurrentHp = maxHp;
         }
 
-        public void Init() => input.ActionMap.Enable();
+        public void Init() => _input.ActionMap.Enable();
 
         private void MoveInput(InputAction.CallbackContext context)
         {
@@ -44,17 +53,25 @@ namespace Game.Tank
 
         private void SwapTurret(InputAction.CallbackContext context) => turret.SwapTurretMode();
 
+        public void TakeDamage(int damage)
+        {
+            CurrentHp -= damage;
+            CurrentHp = Math.Clamp(CurrentHp, 0, maxHp);
+
+            OnHpChanged(CurrentHp);
+        }
+
         private void OnDestroy()
         {
-            input.ActionMap.Move.performed -= MoveInput;
-            input.ActionMap.Move.canceled -= MoveInput;
+            _input.ActionMap.Move.performed -= MoveInput;
+            _input.ActionMap.Move.canceled -= MoveInput;
 
-            input.ActionMap.Point.performed -= AimInput;
-            input.ActionMap.Fire.performed -= FireInput;
+            _input.ActionMap.Point.performed -= AimInput;
+            _input.ActionMap.Fire.performed -= FireInput;
 
-            input.ActionMap.SwapGun.started -= SwapTurret;
+            _input.ActionMap.SwapGun.started -= SwapTurret;
 
-            input.ActionMap.Disable();
+            _input.ActionMap.Disable();
         }
     }
 }

@@ -6,7 +6,12 @@ namespace Game.Bullet
     {
         protected override void OnCollisionEnter2D(Collision2D collision)
         {
-            Debug.Log("Hit");
+            base.OnCollisionEnter2D(collision);
+
+            collision.gameObject.TryGetComponent(out IDamageable damageable);
+
+            if(damageable != null)
+                damageable.TakeDamage(damage);
         }
     }
 }

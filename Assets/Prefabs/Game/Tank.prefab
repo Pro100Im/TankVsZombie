@@ -742,7 +742,7 @@ MonoBehaviour:
   laserDistance: 15
   laserMask:
     serializedVersion: 2
-    m_Bits: 3
+    m_Bits: 899
   lineRenderer: {fileID: 4919661315903317646}
 --- !u!1 &2929523530601386029
 GameObject:
@@ -916,6 +916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39f767660ded8449a695902b97f00fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHp: 120
   movement: {fileID: 6634490729834573493}
   turret: {fileID: 6425540719938671287}
 --- !u!1 &3856007048071637855
@@ -1157,7 +1158,7 @@ MonoBehaviour:
   laserDistance: 12
   laserMask:
     serializedVersion: 2
-    m_Bits: 3
+    m_Bits: 899
   lineRenderer: {fileID: 1065234557507952382}
 --- !u!1 &4918027329127366097
 GameObject:
