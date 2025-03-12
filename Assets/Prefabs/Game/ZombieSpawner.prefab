@@ -51,8 +51,8 @@ MonoBehaviour:
   maxSpawnDelay: 5
   minSpawnDelay: 2
   spawnAttempts: 10
-  smallZombiePrefab: {fileID: 6884669271974012745, guid: 5a5b79ddbadf2414f91f83628fd777b9, type: 3}
-  bigZombiePrefab: {fileID: 8943028343659416501, guid: 0e82323a63f1f4640b15cdb41c95cb4a, type: 3}
+  smallZombiePrefab: {fileID: -3834200726956289650, guid: 5a5b79ddbadf2414f91f83628fd777b9, type: 3}
+  bigZombiePrefab: {fileID: 8650971605073501268, guid: 0e82323a63f1f4640b15cdb41c95cb4a, type: 3}
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 128

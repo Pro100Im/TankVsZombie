@@ -10,11 +10,16 @@ namespace Game
     {
         [SerializeField] private TankSpawner tankSpawner;
         [SerializeField] private ZombieSpawner zombieSpawner;
+        [SerializeField] private TankHpBar tankHpBar; 
 
         private void Start()
         {
             var tank = tankSpawner.Spawn();
             tank.Init();
+
+            tankHpBar.Init(tank.CurrentHp);
+
+            tank.OnHpChanged += tankHpBar.ChangeHp;
 
             var cinamachine = FindFirstObjectByType(typeof(CinemachineCamera)) as CinemachineCamera;
             cinamachine.Follow = tank.transform;

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.Zombie
 {
-    public class ZombieSpawner : MonoBehaviour
+    public sealed class ZombieSpawner : MonoBehaviour
     {
         [SerializeField] private float maxSpawnRadius = 20f;
         [SerializeField] private float minSpawnRadius = 10f;
@@ -14,8 +14,8 @@ namespace Game.Zombie
         [Space]
         [SerializeField] private int spawnAttempts = 10;
         [Space]
-        [SerializeField] private ZombieMovement smallZombiePrefab;
-        [SerializeField] private ZombieMovement bigZombiePrefab;
+        [SerializeField] private ZombieController smallZombiePrefab;
+        [SerializeField] private ZombieController bigZombiePrefab;
         [SerializeField] private LayerMask obstacleLayer;
 
         private Transform _target;

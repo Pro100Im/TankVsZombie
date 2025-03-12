@@ -916,6 +916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39f767660ded8449a695902b97f00fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHp: 120
   movement: {fileID: 6634490729834573493}
   turret: {fileID: 6425540719938671287}
 --- !u!1 &3856007048071637855

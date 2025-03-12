@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Game.Zombie
 {
-    public class ZombieMovement : MonoBehaviour
+    public sealed class ZombieMovement : MonoBehaviour
     {
         [SerializeField] private float moveSpeed = 4f;
         [SerializeField] private float rotationSpeed = 5f;
