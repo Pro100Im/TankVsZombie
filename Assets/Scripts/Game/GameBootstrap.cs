@@ -1,5 +1,6 @@
 using Assets.Scripts.Game.UI;
 using Game.Tank;
+using Game.Zombie;
 using Unity.Cinemachine;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Game
     public sealed class GameBootstrap : MonoBehaviour
     {
         [SerializeField] private TankSpawner tankSpawner;
+        [SerializeField] private ZombieMovement zombieMovement;
 
         private void Start()
         {
@@ -21,6 +23,8 @@ namespace Game
             var turretModeObserver = FindFirstObjectByType(typeof(TurretModeIndicator)) as ITurretModeObserver;
 
             turretModeObservable.AddTurretModeObserver(turretModeObserver);
+
+            zombieMovement.SetTarget(tank.transform);
 
             SceneLoader.Instance.FadeScreen(0);
         }

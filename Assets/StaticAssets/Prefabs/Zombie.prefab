@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 224653442886149626}
   - component: {fileID: 222140347183400442}
   - component: {fileID: 114075531799593624}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224481258240120438}
   - component: {fileID: 114647864662751000}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 223839708318072310}
   - component: {fileID: 114465130734990442}
   - component: {fileID: 114319036242383190}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 4369264174379622}
   - component: {fileID: 50005997623113442}
   - component: {fileID: 58276283865371838}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Zombie
   m_TagString: Zombie
   m_Icon: {fileID: 0}
@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 224863787878483424}
   - component: {fileID: 222810229543885592}
   - component: {fileID: 114951432730511434}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -450,7 +450,7 @@ GameObject:
   - component: {fileID: 4185518348011680}
   - component: {fileID: 212084078498543558}
   - component: {fileID: 95949561898234274}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -558,7 +558,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224071416534960188}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}

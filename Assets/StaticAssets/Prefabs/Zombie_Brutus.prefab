@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224025335902837384}
   - component: {fileID: 114199489181865652}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 4298258254633120}
   - component: {fileID: 212379672437959694}
   - component: {fileID: 95976726942204980}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 223198860909305830}
   - component: {fileID: 114177130657272658}
   - component: {fileID: 114015954847883056}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 224610800245588424}
   - component: {fileID: 222754003957954940}
   - component: {fileID: 114920170161461242}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224407179340341396}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +423,7 @@ GameObject:
   - component: {fileID: 224581649065659902}
   - component: {fileID: 222923274735882422}
   - component: {fileID: 114685478417781282}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -498,7 +498,7 @@ GameObject:
   - component: {fileID: 4292925068363584}
   - component: {fileID: 50699187645879620}
   - component: {fileID: 58576186607466792}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Zombie_Brutus
   m_TagString: Zombie
   m_Icon: {fileID: 0}
