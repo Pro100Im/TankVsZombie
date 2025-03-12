@@ -35,6 +35,33 @@ public partial class @TankInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Point"",
+                    ""type"": ""Value"",
+                    ""id"": ""14db0ce3-8570-4944-b97e-a53abe77c556"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Fire"",
+                    ""type"": ""Button"",
+                    ""id"": ""bb610d8d-2c4a-446e-8f18-2fbf8ab5af1b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwapGun"",
+                    ""type"": ""Value"",
+                    ""id"": ""153b88cc-d3e5-43e0-83da-43fc7ca5178c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -147,6 +174,61 @@ public partial class @TankInput: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""32524a92-957a-4fed-b629-7a0398005d99"",
+                    ""path"": ""<Mouse>/{Point}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""906fb38a-31d8-4aec-afc3-00947c6e8764"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""82cb6b54-9e7d-4a57-b5cb-99591a14c7ab"",
+                    ""path"": ""<Mouse>/scroll/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwapGun"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6c41f6fe-ae38-43bf-bb5b-f618fdd04e94"",
+                    ""path"": ""<Mouse>/scroll/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwapGun"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e6c47a57-0ae4-476a-b3e5-9328563df882"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwapGun"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -156,6 +238,9 @@ public partial class @TankInput: IInputActionCollection2, IDisposable
         // ActionMap
         m_ActionMap = asset.FindActionMap("ActionMap", throwIfNotFound: true);
         m_ActionMap_Move = m_ActionMap.FindAction("Move", throwIfNotFound: true);
+        m_ActionMap_Point = m_ActionMap.FindAction("Point", throwIfNotFound: true);
+        m_ActionMap_Fire = m_ActionMap.FindAction("Fire", throwIfNotFound: true);
+        m_ActionMap_SwapGun = m_ActionMap.FindAction("SwapGun", throwIfNotFound: true);
     }
 
     ~@TankInput()
@@ -223,11 +308,17 @@ public partial class @TankInput: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_ActionMap;
     private List<IActionMapActions> m_ActionMapActionsCallbackInterfaces = new List<IActionMapActions>();
     private readonly InputAction m_ActionMap_Move;
+    private readonly InputAction m_ActionMap_Point;
+    private readonly InputAction m_ActionMap_Fire;
+    private readonly InputAction m_ActionMap_SwapGun;
     public struct ActionMapActions
     {
         private @TankInput m_Wrapper;
         public ActionMapActions(@TankInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_ActionMap_Move;
+        public InputAction @Point => m_Wrapper.m_ActionMap_Point;
+        public InputAction @Fire => m_Wrapper.m_ActionMap_Fire;
+        public InputAction @SwapGun => m_Wrapper.m_ActionMap_SwapGun;
         public InputActionMap Get() { return m_Wrapper.m_ActionMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -240,6 +331,15 @@ public partial class @TankInput: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Point.started += instance.OnPoint;
+            @Point.performed += instance.OnPoint;
+            @Point.canceled += instance.OnPoint;
+            @Fire.started += instance.OnFire;
+            @Fire.performed += instance.OnFire;
+            @Fire.canceled += instance.OnFire;
+            @SwapGun.started += instance.OnSwapGun;
+            @SwapGun.performed += instance.OnSwapGun;
+            @SwapGun.canceled += instance.OnSwapGun;
         }
 
         private void UnregisterCallbacks(IActionMapActions instance)
@@ -247,6 +347,15 @@ public partial class @TankInput: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Point.started -= instance.OnPoint;
+            @Point.performed -= instance.OnPoint;
+            @Point.canceled -= instance.OnPoint;
+            @Fire.started -= instance.OnFire;
+            @Fire.performed -= instance.OnFire;
+            @Fire.canceled -= instance.OnFire;
+            @SwapGun.started -= instance.OnSwapGun;
+            @SwapGun.performed -= instance.OnSwapGun;
+            @SwapGun.canceled -= instance.OnSwapGun;
         }
 
         public void RemoveCallbacks(IActionMapActions instance)
@@ -267,5 +376,8 @@ public partial class @TankInput: IInputActionCollection2, IDisposable
     public interface IActionMapActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnPoint(InputAction.CallbackContext context);
+        void OnFire(InputAction.CallbackContext context);
+        void OnSwapGun(InputAction.CallbackContext context);
     }
 }

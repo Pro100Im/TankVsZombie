@@ -3,9 +3,10 @@ using UnityEngine.InputSystem;
 
 namespace Game.Tank
 {
-    public class TankController : MonoBehaviour
+    public sealed class TankController : MonoBehaviour
     {
         [SerializeField] private TankMovement movement;
+        [SerializeField] private TankTurret turret;
 
         private TankInput input;
 
@@ -13,16 +14,18 @@ namespace Game.Tank
         {
             input = new TankInput();
 
-            input.ActionMap.Move.performed += OnInput;
-            input.ActionMap.Move.canceled += OnInput;
+            input.ActionMap.Move.performed += MoveInput;
+            input.ActionMap.Move.canceled += MoveInput;
+
+            input.ActionMap.Point.performed += AimInput;
+            input.ActionMap.Fire.performed += FireInput;
+
+            input.ActionMap.SwapGun.started += SwapTurret;
         }
 
-        public void Init()
-        {
-            input.ActionMap.Enable();
-        }
+        public void Init() => input.ActionMap.Enable();
 
-        public void OnInput(InputAction.CallbackContext context)
+        private void MoveInput(InputAction.CallbackContext context)
         {
             var input = context.ReadValue<Vector2>().normalized;
 
@@ -30,10 +33,26 @@ namespace Game.Tank
             movement.Rotation(input.x);
         }
 
+        private void AimInput(InputAction.CallbackContext context)
+        {
+            var target = context.ReadValue<Vector2>();
+
+            turret.SetTarget(target);
+        }
+
+        private void FireInput(InputAction.CallbackContext context) => turret.Fire();
+
+        private void SwapTurret(InputAction.CallbackContext context) => turret.SwapTurretMode();
+
         private void OnDestroy()
         {
-            input.ActionMap.Move.performed -= OnInput;
-            input.ActionMap.Move.canceled -= OnInput;
+            input.ActionMap.Move.performed -= MoveInput;
+            input.ActionMap.Move.canceled -= MoveInput;
+
+            input.ActionMap.Point.performed -= AimInput;
+            input.ActionMap.Fire.performed -= FireInput;
+
+            input.ActionMap.SwapGun.started -= SwapTurret;
 
             input.ActionMap.Disable();
         }

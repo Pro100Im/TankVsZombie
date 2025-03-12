@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Game.Tank
 {
-    public class TankMovement : MonoBehaviour
+    public sealed class TankMovement : MonoBehaviour
     {
         [SerializeField] private float maxSpeed = 3.5f;
         [SerializeField] private float rotationSpeed = 70f;
@@ -15,7 +15,7 @@ namespace Game.Tank
 
         public void Move(float value)
         {
-            float targetSpeed = value * maxSpeed;
+            var targetSpeed = value * maxSpeed;
             _currentSpeed = targetSpeed;
         }
 
