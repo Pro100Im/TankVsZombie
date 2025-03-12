@@ -9,8 +9,7 @@ namespace Game
     public sealed class GameBootstrap : MonoBehaviour
     {
         [SerializeField] private TankSpawner tankSpawner;
-        [SerializeField] private ZombieMovement zombieMovement;
-        [SerializeField] private ZombieMovement zombieMovement2;
+        [SerializeField] private ZombieSpawner zombieSpawner;
 
         private void Start()
         {
@@ -25,8 +24,7 @@ namespace Game
 
             turretModeObservable.AddTurretModeObserver(turretModeObserver);
 
-            zombieMovement.SetTarget(tank.transform);
-            zombieMovement2.SetTarget(tank.transform);
+            zombieSpawner.Init(tank.transform);
 
             SceneLoader.Instance.FadeScreen(0);
         }

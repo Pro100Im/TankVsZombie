@@ -742,7 +742,7 @@ MonoBehaviour:
   laserDistance: 15
   laserMask:
     serializedVersion: 2
-    m_Bits: 3
+    m_Bits: 899
   lineRenderer: {fileID: 4919661315903317646}
 --- !u!1 &2929523530601386029
 GameObject:
@@ -1157,7 +1157,7 @@ MonoBehaviour:
   laserDistance: 12
   laserMask:
     serializedVersion: 2
-    m_Bits: 3
+    m_Bits: 899
   lineRenderer: {fileID: 1065234557507952382}
 --- !u!1 &4918027329127366097
 GameObject:
