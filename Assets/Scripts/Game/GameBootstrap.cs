@@ -10,6 +10,7 @@ namespace Game
     {
         [SerializeField] private TankSpawner tankSpawner;
         [SerializeField] private ZombieMovement zombieMovement;
+        [SerializeField] private ZombieMovement zombieMovement2;
 
         private void Start()
         {
@@ -25,6 +26,7 @@ namespace Game
             turretModeObservable.AddTurretModeObserver(turretModeObserver);
 
             zombieMovement.SetTarget(tank.transform);
+            zombieMovement2.SetTarget(tank.transform);
 
             SceneLoader.Instance.FadeScreen(0);
         }
