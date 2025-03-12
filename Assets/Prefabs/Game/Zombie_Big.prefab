@@ -223,10 +223,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e26078e35944404591bffe03c5af602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitAnimTrigger: hit
   maxHp: 150
   zombieMovement: {fileID: 315538006108471720}
   zombieAttack: {fileID: 6197089272763835285}
   zombieHpBar: {fileID: 666812650424956895}
+  animator: {fileID: 5167523368702216059}
 --- !u!1 &2727739194194951197
 GameObject:
   m_ObjectHideFlags: 0

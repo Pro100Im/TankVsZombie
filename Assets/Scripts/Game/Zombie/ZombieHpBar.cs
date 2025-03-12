@@ -26,5 +26,7 @@ namespace Game.Zombie
             hp.localScale = new Vector3(targetValue, 1, 1);
             hpShadow.DOScaleX(targetValue, changeHpDuration).SetDelay(changeHpDuration);
         }
+
+        private void OnDestroy() => DOTween.Kill(hpShadow);
     }
 }
