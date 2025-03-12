@@ -12,17 +12,14 @@ namespace Game.Tank
 
         private int _maxHp;
 
-        public void Init(int maxHp)
-        {
-            _maxHp = maxHp;
-        }
+        public void Init(int maxHp) => _maxHp = maxHp;
 
         public void ChangeHp(int currentHp)
         {
             var targetValue = (float)currentHp / _maxHp;
 
             hp.value = targetValue;
-            hpShadow.DOValue(targetValue, changeHpDuration);
+            hpShadow.DOValue(targetValue, changeHpDuration).SetDelay(changeHpDuration);
         }
     }
 }

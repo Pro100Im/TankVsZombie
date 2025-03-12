@@ -5,13 +5,15 @@ namespace Game.Zombie
 {
     public sealed class ZombieSpawner : MonoBehaviour
     {
-        [SerializeField] private float maxSpawnRadius = 20f;
-        [SerializeField] private float minSpawnRadius = 10f;
         [SerializeField] private float pointRadius = 2f; 
         [SerializeField] private float smallZombieProbability = .75f;
         [SerializeField] private float maxSpawnDelay = 5f;
         [SerializeField] private float minSpawnDelay = 2f;
         [Space]
+        [SerializeField] private int maxSpawnRadius = 10;
+        [SerializeField] private int maxSpawnRadius2 = 15;
+        [SerializeField] private int minSpawnRadius = -10;
+        [SerializeField] private int minSpawnRadius2 = -15;
         [SerializeField] private int spawnAttempts = 10;
         [Space]
         [SerializeField] private ZombieController smallZombiePrefab;
@@ -46,8 +48,10 @@ namespace Game.Zombie
 
             for(int i = 0; i < spawnAttempts; i++)
             {
-                var randomDistance = Random.Range(minSpawnRadius, maxSpawnRadius);
-               
+                int[] possibleDistances = { minSpawnRadius, -minSpawnRadius, maxSpawnRadius, maxSpawnRadius2 };
+                int randomIndex = Random.Range(0, possibleDistances.Length);
+                int randomDistance = possibleDistances[randomIndex];
+
                 var randomPoint = _target.position + Vector3.one * randomDistance;
                 randomPoint.z = 0;
 
