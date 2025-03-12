@@ -1,4 +1,3 @@
-using Assets.Scripts.Game.UI;
 using Game.Tank;
 using Game.Zombie;
 using Unity.Cinemachine;
@@ -8,15 +7,13 @@ namespace Game
 {
     public sealed class GameBootstrap : MonoBehaviour
     {
-        [SerializeField] private TankSpawner tankSpawner;
-        [SerializeField] private ZombieSpawner zombieSpawner;
-        [SerializeField] private TankHpBar tankHpBar; 
-
         private void Start()
         {
+            var tankSpawner = FindFirstObjectByType(typeof(TankSpawner)) as TankSpawner;
             var tank = tankSpawner.Spawn();
             tank.Init();
 
+            var tankHpBar = FindFirstObjectByType(typeof(TankHpBar)) as TankHpBar;
             tankHpBar.Init(tank.CurrentHp);
 
             tank.OnHpChanged += tankHpBar.ChangeHp;
@@ -28,7 +25,10 @@ namespace Game
             var turretModeObserver = FindFirstObjectByType(typeof(TurretModeIndicator)) as ITurretModeObserver;
             turretModeObservable.AddTurretModeObserver(turretModeObserver);
 
-            zombieSpawner.Init(tank.transform);
+            var killCounter = FindFirstObjectByType(typeof(KillCounter)) as KillCounter;
+
+            var zombieSpawner = FindFirstObjectByType(typeof(ZombieSpawner)) as ZombieSpawner;
+            zombieSpawner.Init(tank.transform, killCounter);
 
             SceneLoader.Instance.FadeScreen(0);
         }

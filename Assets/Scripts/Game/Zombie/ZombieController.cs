@@ -61,7 +61,8 @@ namespace Game.Zombie
             }
 
             OnDie?.Invoke();
-;
+;           OnDie = null;
+
             Destroy(gameObject);
         }
     }
