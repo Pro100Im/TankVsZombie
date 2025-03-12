@@ -17,9 +17,11 @@ namespace Game.Tank
 
         private TankInput _input;
 
-        private void Awake()
+        private void Awake() => CurrentHp = maxHp;
+
+        public void Init(TankInput tankInput)
         {
-            _input = new TankInput();
+            _input = tankInput;
 
             _input.ActionMap.Move.performed += MoveInput;
             _input.ActionMap.Move.canceled += MoveInput;
@@ -29,10 +31,8 @@ namespace Game.Tank
 
             _input.ActionMap.SwapGun.started += SwapTurret;
 
-            CurrentHp = maxHp;
+            _input.ActionMap.Enable();
         }
-
-        public void Init() => _input.ActionMap.Enable();
 
         private void MoveInput(InputAction.CallbackContext context)
         {

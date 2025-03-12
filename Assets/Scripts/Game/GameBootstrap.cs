@@ -1,3 +1,4 @@
+using Game.Score;
 using Game.Tank;
 using Game.Zombie;
 using Unity.Cinemachine;
@@ -9,9 +10,13 @@ namespace Game
     {
         private void Start()
         {
+            //Cursor.visible = false;
+
+            TankInput input = new TankInput();
+
             var tankSpawner = FindFirstObjectByType(typeof(TankSpawner)) as TankSpawner;
             var tank = tankSpawner.Spawn();
-            tank.Init();
+            tank.Init(input);
 
             var tankHpBar = FindFirstObjectByType(typeof(TankHpBar)) as TankHpBar;
             tankHpBar.Init(tank.CurrentHp);
@@ -29,6 +34,9 @@ namespace Game
 
             var zombieSpawner = FindFirstObjectByType(typeof(ZombieSpawner)) as ZombieSpawner;
             zombieSpawner.Init(tank.transform, killCounter);
+
+            var pause = FindFirstObjectByType(typeof(Pause)) as Pause;
+            pause.Init(input);
 
             SceneLoader.Instance.FadeScreen(0);
         }

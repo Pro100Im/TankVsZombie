@@ -1,9 +1,9 @@
 using TMPro;
 using UnityEngine;
 
-namespace Game
+namespace Game.Score
 {
-    public class KillCounter : MonoBehaviour, IKillCounter, IGetKills
+    public sealed class KillCounter : MonoBehaviour, IKillCounter, IGetKills
     {
         [SerializeField] private TextMeshProUGUI countText;
 

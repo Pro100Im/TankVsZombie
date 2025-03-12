@@ -1,5 +1,5 @@
 
-namespace Game
+namespace Game.Score
 {
     public interface IGetKills
     {
