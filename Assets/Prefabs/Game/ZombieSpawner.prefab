@@ -44,12 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19bfb77f1385aee4fb88e851b6dad7a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpawnRadius: 10
-  minSpawnRadius: 5
   pointRadius: 3
   smallZombieProbability: 0.75
   maxSpawnDelay: 5
   minSpawnDelay: 2
+  maxSpawnRadius: 7
+  maxSpawnRadius2: 10
+  minSpawnRadius: -7
+  minSpawnRadius2: -10
   spawnAttempts: 10
   smallZombiePrefab: {fileID: -3834200726956289650, guid: 5a5b79ddbadf2414f91f83628fd777b9, type: 3}
   bigZombiePrefab: {fileID: 8650971605073501268, guid: 0e82323a63f1f4640b15cdb41c95cb4a, type: 3}

@@ -48,12 +48,16 @@ namespace Game.Zombie
 
             for(int i = 0; i < spawnAttempts; i++)
             {
-                int[] possibleDistances = { minSpawnRadius, -minSpawnRadius, maxSpawnRadius, maxSpawnRadius2 };
-                int randomIndex = Random.Range(0, possibleDistances.Length);
-                int randomDistance = possibleDistances[randomIndex];
+                int[] possibleDistancesX = { minSpawnRadius, minSpawnRadius2, maxSpawnRadius, maxSpawnRadius2 };
+                int[] possibleDistancesY = { minSpawnRadius, minSpawnRadius2, maxSpawnRadius, maxSpawnRadius2 };
 
-                var randomPoint = _target.position + Vector3.one * randomDistance;
-                randomPoint.z = 0;
+                int randomIndexX = Random.Range(0, possibleDistancesX.Length);
+                int randomIndexY = Random.Range(0, possibleDistancesY.Length);
+
+                int randomDistanceX = possibleDistancesX[randomIndexX];
+                int randomDistanceY = possibleDistancesY[randomIndexY];
+
+                var randomPoint = _target.position + new Vector3(randomDistanceX, randomDistanceY, 0);
 
                 if(!Physics2D.OverlapCircle(randomPoint, pointRadius, obstacleLayer))
                 {
