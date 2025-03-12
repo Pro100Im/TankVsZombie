@@ -239,3 +239,6 @@ MonoBehaviour:
   speedForce: 8
   lifeTime: 1.5
   rb: {fileID: 5376676127051651020}
+  layer:
+    serializedVersion: 2
+    m_Bits: 136

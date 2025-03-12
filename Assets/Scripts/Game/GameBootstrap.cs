@@ -21,7 +21,6 @@ namespace Game
 
             var turretModeObservable = FindFirstObjectByType(typeof(TankTurret)) as ITurretModeObservable;
             var turretModeObserver = FindFirstObjectByType(typeof(TurretModeIndicator)) as ITurretModeObserver;
-
             turretModeObservable.AddTurretModeObserver(turretModeObserver);
 
             zombieSpawner.Init(tank.transform);

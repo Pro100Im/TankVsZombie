@@ -31,7 +31,7 @@ namespace Game.Zombie
         {
             while(true)
             {
-                float delay = Random.Range(1f, maxSpawnDelay);
+                float delay = Random.Range(minSpawnDelay, maxSpawnDelay);
 
                 yield return new WaitForSeconds(delay);
 

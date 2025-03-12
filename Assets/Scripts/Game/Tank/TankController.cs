@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace Game.Tank
 {
-    public sealed class TankController : MonoBehaviour
+    public sealed class TankController : MonoBehaviour, IDamageable
     {
         [SerializeField] private TankMovement movement;
         [SerializeField] private TankTurret turret;
@@ -43,6 +43,11 @@ namespace Game.Tank
         private void FireInput(InputAction.CallbackContext context) => turret.Fire();
 
         private void SwapTurret(InputAction.CallbackContext context) => turret.SwapTurretMode();
+
+        public void TakeDamage(int damage)
+        {
+            
+        }
 
         private void OnDestroy()
         {

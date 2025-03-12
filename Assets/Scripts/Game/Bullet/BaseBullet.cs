@@ -12,6 +12,7 @@ namespace Game.Bullet
         [SerializeField] private float lifeTime = 3f;
         [Space]
         [SerializeField] private Rigidbody2D rb;
+        [SerializeField] private LayerMask layer;
 
         private IBulletDeSpawner _bulletPool;
         private Coroutine _coroutine;
@@ -37,6 +38,9 @@ namespace Game.Bullet
 
         protected virtual void OnCollisionEnter2D(Collision2D collision)
         {
+            if(((1 << collision.gameObject.layer) & layer.value) != 0)
+                return;
+
             if(_coroutine != null)
                 StopCoroutine(_coroutine);
 
