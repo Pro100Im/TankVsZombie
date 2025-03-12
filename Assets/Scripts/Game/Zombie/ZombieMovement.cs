@@ -8,6 +8,7 @@ namespace Game.Zombie
         [SerializeField] private float rotationSpeed = 5f;
         [Space]
         [SerializeField] private Rigidbody2D rb;
+        [SerializeField] private LayerMask obstacleLayer;
 
         private const int Multiply = 100;
 
@@ -20,7 +21,15 @@ namespace Game.Zombie
             if(_target == null) 
                 return;
 
-            var direction = (_target.position - transform.position).normalized;
+            Vector2 direction = (_target.position - transform.position).normalized;
+            var hit = Physics2D.Raycast(transform.position, direction, 2, obstacleLayer);
+
+            if(hit.collider != null)
+            {
+                Vector2 avoidanceDirection = Vector2.Perpendicular(hit.normal) * 1;
+                direction += avoidanceDirection;
+            }
+
             var targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             var angle = Mathf.LerpAngle(rb.rotation, targetAngle, rotationSpeed * Time.fixedDeltaTime);
 

@@ -4501,7 +4501,7 @@ GameObject:
   - component: {fileID: 224653443459123553}
   - component: {fileID: 222140348826724705}
   - component: {fileID: 114075530151964163}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4518,7 +4518,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224481257736485613}
   - component: {fileID: 114647866236328835}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4537,7 +4537,7 @@ GameObject:
   - component: {fileID: 223839707813106029}
   - component: {fileID: 114465132379085041}
   - component: {fileID: 114319035674787277}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4556,7 +4556,7 @@ GameObject:
   - component: {fileID: 50005999264324217}
   - component: {fileID: 58276284368631845}
   - component: {fileID: 58276284368631846}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Zombie
   m_TagString: Zombie
   m_Icon: {fileID: 0}
@@ -4574,7 +4574,7 @@ GameObject:
   - component: {fileID: 224863786235308411}
   - component: {fileID: 222810230117267331}
   - component: {fileID: 114951434309215441}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4592,7 +4592,7 @@ GameObject:
   - component: {fileID: 4185516705227835}
   - component: {fileID: 212084080141196125}
   - component: {fileID: 95949561397468473}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4608,7 +4608,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224071417037956263}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4722,9 +4722,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a898e7f47955d47a8f35053b6e5a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 4
   rotationSpeed: 5
   rb: {fileID: 50005999264324217}
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!95 &95949561397468473
 Animator:
   serializedVersion: 7
