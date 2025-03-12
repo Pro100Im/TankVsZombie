@@ -7,8 +7,6 @@ namespace Game
 {
     public sealed class Pause : MonoBehaviour
     {
-        [SerializeField] private float fadeDuration = 0.3f;
-        [Space]
         [SerializeField] private GameObject panel;
         [SerializeField] private Button backToMenuBtb;
 
@@ -29,7 +27,7 @@ namespace Game
         {
             if(!_isPaused)
             {
-                _input.ActionMap.Disable();
+                Cursor.visible = true;
 
                 Time.timeScale = 0;
 
@@ -39,7 +37,7 @@ namespace Game
             }
             else
             {
-                _input.ActionMap.Enable();
+                Cursor.visible = false;
 
                 Time.timeScale = 1;
 

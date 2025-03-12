@@ -6,6 +6,7 @@ namespace Game.Tank
 {
     public sealed class TankController : MonoBehaviour, IDamageable
     {
+        public event Action OnDie;
         public event Action<int> OnHpChanged;
 
         [SerializeField] private int maxHp = 30;
@@ -55,6 +56,13 @@ namespace Game.Tank
 
         public void TakeDamage(int damage)
         {
+            if(CurrentHp <= 0)
+            {
+                OnDie?.Invoke();
+
+                return;
+            }
+
             CurrentHp -= damage;
             CurrentHp = Math.Clamp(CurrentHp, 0, maxHp);
 

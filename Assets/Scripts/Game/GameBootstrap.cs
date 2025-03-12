@@ -10,7 +10,7 @@ namespace Game
     {
         private void Start()
         {
-            //Cursor.visible = false;
+            Cursor.visible = false;
 
             TankInput input = new TankInput();
 
@@ -37,6 +37,11 @@ namespace Game
 
             var pause = FindFirstObjectByType(typeof(Pause)) as Pause;
             pause.Init(input);
+
+            var gameOver = FindFirstObjectByType(typeof(GameOver)) as GameOver;
+            gameOver.Init(killCounter);
+
+            tank.OnDie += gameOver.Open;
 
             SceneLoader.Instance.FadeScreen(0);
         }
