@@ -7,9 +7,12 @@ namespace Game.Tank
     {
         [SerializeField] protected Transform firePoint;
         [SerializeField] protected BulletPool bulletPool;
+        [SerializeField] protected ParticleSystem fireEffect;
 
         public virtual void Shoot()
         {
+            fireEffect.Play();
+
             var bullet = bulletPool.Spawn(firePoint.position, firePoint.rotation);
             bullet.AddForce();
         }
