@@ -27,6 +27,8 @@ namespace Game
         {
             if(!_isPaused)
             {
+                _input.ActionMap.Fire.Disable();
+
                 Cursor.visible = true;
 
                 Time.timeScale = 0;
@@ -44,6 +46,8 @@ namespace Game
                 panel.SetActive(false);
 
                 _isPaused = false;
+
+                _input.ActionMap.Fire.Enable();
             }
         }
 

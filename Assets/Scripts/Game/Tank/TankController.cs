@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 
 namespace Game.Tank
 {
@@ -58,6 +59,9 @@ namespace Game.Tank
         {
             if(CurrentHp <= 0)
             {
+                _input.ActionMap.Disable();
+                movement.Move(0);
+
                 OnDie?.Invoke();
 
                 return;

@@ -7,6 +7,8 @@ namespace Game.Zombie
         [SerializeField] private int damage = 1;
         [SerializeField] private float timeBetweenAttack = 1f;
         [SerializeField] private float distanceForAttack = 1f;
+        [Space]
+        [SerializeField] private ZombieAudio zombieAudio;
 
         private float _lastAttackTime;
 
@@ -26,6 +28,8 @@ namespace Game.Zombie
 
             if(Time.time - _lastAttackTime < timeBetweenAttack)
                 return;
+
+            zombieAudio.Attack();
 
             _target.TakeDamage(damage);
             _lastAttackTime = Time.time;

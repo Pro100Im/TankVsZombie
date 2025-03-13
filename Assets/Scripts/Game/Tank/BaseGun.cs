@@ -8,6 +8,7 @@ namespace Game.Tank
         [SerializeField] protected Transform firePoint;
         [SerializeField] protected BulletPool bulletPool;
         [SerializeField] protected ParticleSystem fireEffect;
+        [SerializeField] protected TankAudio tankAudio;
 
         public virtual void Shoot()
         {

@@ -15,16 +15,18 @@ namespace Game
         [SerializeField] private TextMeshProUGUI timeInGameText;
         [SerializeField] private TextMeshProUGUI killCountText;
 
-        private float _time;
-        private IGetKills _getKills;
-
         private bool _isGameOver;
+
+        private float _time;
+
+        private IGetKills _getKills;
 
         private void Awake() => backToMenuBtb.onClick.AddListener(BackToMenu);
 
         public void Init(IGetKills getKills)
         {
             _getKills = getKills;
+
             _time = Time.time;
         }
 

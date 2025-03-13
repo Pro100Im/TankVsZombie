@@ -21,6 +21,8 @@ namespace Game.Tank
             if(!isReloaded)
                 return;
 
+            tankAudio.PlayGun(false);
+
             base.Shoot();
             isReloaded = false;
 

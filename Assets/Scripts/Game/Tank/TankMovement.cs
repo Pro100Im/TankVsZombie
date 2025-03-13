@@ -9,6 +9,7 @@ namespace Game.Tank
         [SerializeField] private float enginePower = 500f;
         [Space]
         [SerializeField] private Rigidbody2D rb;
+        [SerializeField] private TankAudio tankAudio;
 
         private float _currentSpeed = 0f;
         private float _currentRotation = 0f;
@@ -28,6 +29,8 @@ namespace Game.Tank
         {
             rb.AddRelativeForceY(_currentSpeed * enginePower);
             rb.linearVelocityY = Mathf.Clamp(rb.linearVelocityY, -maxSpeed, maxSpeed);
+
+            tankAudio.SetEngineSpeed(rb.linearVelocityY, maxSpeed);
 
             if(_currentRotation != 0)
                 rb.rotation -= _currentRotation * Time.fixedDeltaTime;
