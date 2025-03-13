@@ -1,11 +1,13 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 
 namespace Game.Tank
 {
     public sealed class TankController : MonoBehaviour, IDamageable
     {
+        public event Action OnDie;
         public event Action<int> OnHpChanged;
 
         [SerializeField] private int maxHp = 30;
@@ -17,9 +19,11 @@ namespace Game.Tank
 
         private TankInput _input;
 
-        private void Awake()
+        private void Awake() => CurrentHp = maxHp;
+
+        public void Init(TankInput tankInput)
         {
-            _input = new TankInput();
+            _input = tankInput;
 
             _input.ActionMap.Move.performed += MoveInput;
             _input.ActionMap.Move.canceled += MoveInput;
@@ -29,10 +33,8 @@ namespace Game.Tank
 
             _input.ActionMap.SwapGun.started += SwapTurret;
 
-            CurrentHp = maxHp;
+            _input.ActionMap.Enable();
         }
-
-        public void Init() => _input.ActionMap.Enable();
 
         private void MoveInput(InputAction.CallbackContext context)
         {
@@ -55,6 +57,16 @@ namespace Game.Tank
 
         public void TakeDamage(int damage)
         {
+            if(CurrentHp <= 0)
+            {
+                _input.ActionMap.Disable();
+                movement.Move(0);
+
+                OnDie?.Invoke();
+
+                return;
+            }
+
             CurrentHp -= damage;
             CurrentHp = Math.Clamp(CurrentHp, 0, maxHp);
 

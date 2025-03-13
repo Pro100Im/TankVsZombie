@@ -241,4 +241,7 @@ MonoBehaviour:
   rb: {fileID: 2920797238515054449}
   layer:
     serializedVersion: 2
-    m_Bits: 136
+    m_Bits: 128
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 8

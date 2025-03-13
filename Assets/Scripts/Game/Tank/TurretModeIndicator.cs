@@ -1,8 +1,7 @@
-using Game.Tank;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Game.UI
+namespace Game.Tank
 {
     public sealed class TurretModeIndicator : MonoBehaviour, ITurretModeObserver
     {

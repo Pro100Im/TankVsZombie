@@ -115,8 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 451c4ce058ac2c743a8b47c0f19be136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuScene: {fileID: 102900000, guid: 60ca2b66b8f8a0243a0f1953506fba3c, type: 3}
-  gameScene: {fileID: 102900000, guid: dbe4369d104cdcc438654f7d57aa9744, type: 3}
+  menuScene: Menu
+  gameScene: Level
   transitionScreen: {fileID: 8873179932922008492}
   fadeDuration: 0.3
 --- !u!1 &3888273929851850597

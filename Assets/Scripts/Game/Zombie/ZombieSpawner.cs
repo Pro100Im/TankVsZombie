@@ -1,3 +1,4 @@
+using Game.Score;
 using System.Collections;
 using UnityEngine;
 
@@ -20,11 +21,13 @@ namespace Game.Zombie
         [SerializeField] private ZombieController bigZombiePrefab;
         [SerializeField] private LayerMask obstacleLayer;
 
+        private IKillCounter _killCounter;
         private Transform _target;
 
-        public void Init(Transform target)
+        public void Init(Transform target, IKillCounter killCounter)
         {
             _target = target;
+            _killCounter = killCounter;
 
             StartCoroutine(SpawnZombiesPeriodically());
         }
@@ -63,6 +66,7 @@ namespace Game.Zombie
                 {
                     var zombiePrefab = Random.value < smallZombieProbability ? smallZombiePrefab : bigZombiePrefab;
                     var zombie = Instantiate(zombiePrefab, randomPoint, Quaternion.identity);
+                    zombie.OnDie += _killCounter.KillCountIncrement;
                     zombie.SetTarget(_target);
 
                     return;

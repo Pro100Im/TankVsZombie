@@ -62,6 +62,15 @@ public partial class @TankInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""54094819-453b-4564-b856-c68b1f1b6144"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -229,6 +238,17 @@ public partial class @TankInput: IInputActionCollection2, IDisposable
                     ""action"": ""SwapGun"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""92a1d448-55bb-4768-ab06-9e30e58e39c5"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -241,6 +261,7 @@ public partial class @TankInput: IInputActionCollection2, IDisposable
         m_ActionMap_Point = m_ActionMap.FindAction("Point", throwIfNotFound: true);
         m_ActionMap_Fire = m_ActionMap.FindAction("Fire", throwIfNotFound: true);
         m_ActionMap_SwapGun = m_ActionMap.FindAction("SwapGun", throwIfNotFound: true);
+        m_ActionMap_Pause = m_ActionMap.FindAction("Pause", throwIfNotFound: true);
     }
 
     ~@TankInput()
@@ -311,6 +332,7 @@ public partial class @TankInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_ActionMap_Point;
     private readonly InputAction m_ActionMap_Fire;
     private readonly InputAction m_ActionMap_SwapGun;
+    private readonly InputAction m_ActionMap_Pause;
     public struct ActionMapActions
     {
         private @TankInput m_Wrapper;
@@ -319,6 +341,7 @@ public partial class @TankInput: IInputActionCollection2, IDisposable
         public InputAction @Point => m_Wrapper.m_ActionMap_Point;
         public InputAction @Fire => m_Wrapper.m_ActionMap_Fire;
         public InputAction @SwapGun => m_Wrapper.m_ActionMap_SwapGun;
+        public InputAction @Pause => m_Wrapper.m_ActionMap_Pause;
         public InputActionMap Get() { return m_Wrapper.m_ActionMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -340,6 +363,9 @@ public partial class @TankInput: IInputActionCollection2, IDisposable
             @SwapGun.started += instance.OnSwapGun;
             @SwapGun.performed += instance.OnSwapGun;
             @SwapGun.canceled += instance.OnSwapGun;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IActionMapActions instance)
@@ -356,6 +382,9 @@ public partial class @TankInput: IInputActionCollection2, IDisposable
             @SwapGun.started -= instance.OnSwapGun;
             @SwapGun.performed -= instance.OnSwapGun;
             @SwapGun.canceled -= instance.OnSwapGun;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IActionMapActions instance)
@@ -379,5 +408,6 @@ public partial class @TankInput: IInputActionCollection2, IDisposable
         void OnPoint(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnSwapGun(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

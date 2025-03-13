@@ -13,6 +13,9 @@ namespace Game.Zombie
         [SerializeField] private ZombieMovement zombieMovement;
         [SerializeField] private ZombieAttack zombieAttack;
         [SerializeField] private ZombieHpBar zombieHpBar;
+        [SerializeField] private ZombieAudio zombieAudio;
+        [Space]
+        [SerializeField] private ParticleSystem dieEffect;
         [Space]
         [SerializeField] private Animator animator;
 
@@ -54,15 +57,23 @@ namespace Game.Zombie
         {
             if(CurrentHp > 0)
             {
+                zombieAudio.TakeDamage();
                 zombieHpBar.ChangeHp(CurrentHp);
                 animator.SetTrigger(hitAnimTrigger);
 
                 return;
             }
 
+            zombieAudio.PlayDie();
+            dieEffect.Play();
+
+            zombieMovement.enabled = false;
+            zombieAttack.enabled = false;
+
             OnDie?.Invoke();
-;
-            Destroy(gameObject);
+;           OnDie = null;
+
+            Destroy(gameObject, 1f);
         }
     }
 }

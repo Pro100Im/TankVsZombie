@@ -235,10 +235,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ded1bb38ba0b24cb79e5a4f8dcfdf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 30
+  damage: 50
   speedForce: 8
   lifeTime: 1.5
   rb: {fileID: 5376676127051651020}
   layer:
     serializedVersion: 2
-    m_Bits: 136
+    m_Bits: 0
+  explosionRadius: 4
+  explosionPrefab: {fileID: 2582139904200114729, guid: 2b0b09155134d13418f849e50cc931bc, type: 3}

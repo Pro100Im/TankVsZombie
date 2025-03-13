@@ -1,14 +1,13 @@
 using DG.Tweening;
 using System;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour
 {
-    [SerializeField] private SceneAsset menuScene;
-    [SerializeField] private SceneAsset gameScene;
+    [SerializeField] private string menuScene;
+    [SerializeField] private string gameScene;
     [Space]
     [SerializeField] private Image transitionScreen;
     [SerializeField] private float fadeDuration = .3f;
@@ -27,9 +26,9 @@ public class SceneLoader : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void LoadMenuScene() => FadeScreen(1, () => LoadScene(menuScene.name));
+    public void LoadMenuScene() => FadeScreen(1, () => LoadScene(menuScene));
 
-    public void LoadGameScene() => FadeScreen(1, () => LoadScene(gameScene.name));
+    public void LoadGameScene() => FadeScreen(1, () => LoadScene(gameScene));
 
     public void LoadScene(string sceneName) => SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
 

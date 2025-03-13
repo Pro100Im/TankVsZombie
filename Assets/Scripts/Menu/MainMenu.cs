@@ -17,6 +17,9 @@ namespace Menu
 
         private void Start()
         {
+            if(!Cursor.visible)
+                Cursor.visible = true;
+
             _loader = SceneLoader.Instance;
             _loader.FadeScreen(0);
         }

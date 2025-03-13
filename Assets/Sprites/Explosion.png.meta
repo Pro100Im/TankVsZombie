@@ -1,12 +1,13 @@
 fileFormatVersion: 2
-guid: 2498cc346e605a244a2140e5469da5bb
+guid: a87e33e4cf25b374eadc4b02533e249d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2849350727875845445
-    second: "DALL\xB7E 2025-03-11 21.42.09 - A dark transition screen with a nearly
-      black background, where faint outlines of zombie hands and figures are subtly
-      visible, like a stencil effect. T_0"
+      213: 1208040086343421634
+    second: image_0
+  - first:
+      213: 3888885927669863452
+    second: image_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -141,15 +142,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "DALL\xB7E 2025-03-11 21.42.09 - A dark transition screen with a nearly
-        black background, where faint outlines of zombie hands and figures are subtly
-        visible, like a stencil effect. T_0"
+      name: image_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1024
-        height: 1024
+        x: 45
+        y: 40
+        width: 772
+        height: 618
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,8 +157,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 54d5a87f36dea8720800000000000000
-      internalID: 2849350727875845445
+      spriteID: 2ce8eecde02d3c010800000000000000
+      internalID: 1208040086343421634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: image_1
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 657
+        width: 14
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1417c2a52918f530800000000000000
+      internalID: 3888885927669863452
       vertices: []
       indices: 
       edges: []
@@ -168,7 +189,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -178,7 +199,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "DALL\xB7E 2025-03-11 21.42.09 - A dark transition screen with a nearly black background, where faint outlines of zombie hands and figures are subtly visible, like a stencil effect. T_0": 2849350727875845445
+      image_0: 1208040086343421634
+      image_1: 3888885927669863452
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

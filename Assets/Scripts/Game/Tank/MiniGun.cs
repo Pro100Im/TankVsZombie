@@ -6,6 +6,8 @@ namespace Game.Tank
     {
         public override void Shoot()
         {
+            tankAudio.PlayGun(true);
+
             base.Shoot();
         }
     }
